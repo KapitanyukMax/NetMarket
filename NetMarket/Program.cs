@@ -1,7 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Infrastructure;
+using Infrastructure.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure dependencies
+string? connectionString = builder.Configuration.GetConnectionString("LocalDb");
 
+builder.Services.AddDbContext<NetMarketDbContext>(opts => opts.UseSqlServer(connectionString));
+
+builder.Services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<NetMarketDbContext>()
+                .AddDefaultTokenProviders();
+
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
