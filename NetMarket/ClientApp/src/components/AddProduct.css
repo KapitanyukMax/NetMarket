@@ -1,0 +1,14 @@
+html
+{
+    width:80%;
+    margin:auto;
+}
+.add-product-form div
+{
+    padding: 5px;
+
+}
+.add-product-form div input
+{
+    margin-left: 15px;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Product from './Product';
 const OrderDetails = ({order})=>
 {
     const {Id, Date, TotalPrice, User, Product} = order;

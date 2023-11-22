@@ -1,7 +1,9 @@
-import { Counter } from "./components/Counter";
-import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import ProductListPage from "./components/ProductsListPage";
+import Cart from "./components/Cart";
+import Category from "./components/Categories";
+import AddProduct from "./components/AddProduct";
+
 
 const AppRoutes = [
   {
@@ -9,16 +11,20 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/counter',
-    element: <Counter />
+    path: '/cart',
+    element: <Cart />
   },
   {
-    path: '/fetch-data',
-    element: <FetchData />
+    path: '/category',
+    element: <Category />
   },
   {
     path: '/products',
     element: <ProductListPage/>
+  },
+  {
+    path: '/addProduct',
+    element: <AddProduct/>
   }
 ];
 

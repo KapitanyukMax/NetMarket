@@ -1,5 +1,5 @@
 import React from 'react';
-const Advertisement = ({product})=>
+const Product = ({product})=>
 {
     const{
         Name,
@@ -25,4 +25,4 @@ const Advertisement = ({product})=>
     )
 }
 
-export default Advertisement;
+export default Product;
