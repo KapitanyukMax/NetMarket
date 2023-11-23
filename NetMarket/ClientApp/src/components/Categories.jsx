@@ -1,9 +1,10 @@
-const Category=()=>
-{
+//import react from 'react';
+import CategoryList from './CategoryList';
+
+const Categories=()=>{
     return(
-        <div>
-            <h1>Categories</h1>
-        </div>
+        <CategoryList/>
     )
-}
-export default Category;
+};
+
+export default Categories;
