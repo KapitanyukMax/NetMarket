@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './AddNewUserForm.css';
-
+import axios from 'axios';
 
 const AddNewUserForm=()=>{
     const [UserName, setUserName] = useState('');
@@ -22,7 +22,7 @@ const AddNewUserForm=()=>{
         setPhoneNumber(e.target.value);
     }
 
-    const handleSubmit=()=>{
+    const handleSubmit = async ()=>{
         const user={
             UserName: UserName,
             DateOfBirth: DateOfBirth,
@@ -31,6 +31,12 @@ const AddNewUserForm=()=>{
         }
 
     console.log(user);
+    try {
+        const response = await axios.post('https://localhost:44447', user);
+        console.log('Success:', response.data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 
     setUserName('');
     setDateOfBirth('');

@@ -1,5 +1,5 @@
 import {useState} from 'react';
-
+import axios from 'axios';
 const AddProductForm=()=>{
     const [productName, setName] = useState('');
     const [productPrice, setPrice] = useState('');
@@ -22,7 +22,7 @@ const AddProductForm=()=>{
     const handleCategoryChange=(e)=>{
         setCategory(e.target.value);
     }
-    const handleSubmit=()=>{
+    const handleSubmit= async ()=>{
         const product={
             Name: productName,
             Price: productPrice,
@@ -33,7 +33,14 @@ const AddProductForm=()=>{
 
 
         console.log(product);
-        //code for sending obj to server
+        
+        
+        try {
+            const response = await axios.post('https://localhost:44447', product);
+            console.log('Success:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
 
 
         setName('');
