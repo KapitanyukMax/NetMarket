@@ -5,7 +5,7 @@ const Cart = ()=>
     return(
         <div>
             <h1>Hello world!</h1>
-        </div>
+        </div>//cookies
         )
 };
 

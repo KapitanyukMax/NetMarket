@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+//import React, {useState, useEffect} from 'react';
 //import mssql from 'mssql';
-const urlDb = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=NetMarketDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+//const urlDb = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=NetMarketDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
 const ProductList=()=>
 {

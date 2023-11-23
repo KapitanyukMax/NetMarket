@@ -101,7 +101,7 @@ const AddProductForm=()=>{
                         onChange={handleCategoryChange}
                         required/>   
                 </div>
-                <button type="button" onClick={handleSubmit}>Confirm : </button>    
+                <button type="button" onClick={handleSubmit}>Confirm </button>    
                 </div>         
             </form>
         </div>

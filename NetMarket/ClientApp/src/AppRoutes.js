@@ -3,7 +3,7 @@ import ProductListPage from "./components/ProductsListPage";
 import Cart from "./components/Cart";
 import Category from "./components/Categories";
 import AddProduct from "./components/AddProduct";
-
+import AddUser from "./components/AddUser";
 
 const AppRoutes = [
   {
@@ -25,6 +25,10 @@ const AppRoutes = [
   {
     path: '/addProduct',
     element: <AddProduct/>
+  },
+  {
+    path: '/addUser',
+    element: <AddUser/>
   }
 ];
 
