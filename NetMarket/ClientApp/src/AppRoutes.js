@@ -4,6 +4,7 @@ import Cart from "./components/Cart";
 import Category from "./components/Categories";
 import AddProduct from "./components/AddProduct";
 import AddUser from "./components/AddUser";
+import LogIn from "./components/LogIn";
 
 const AppRoutes = [
   {
@@ -29,6 +30,10 @@ const AppRoutes = [
   {
     path: '/addUser',
     element: <AddUser/>
+  },
+  {
+    path: '/logIn',
+    element : <LogIn/>
   }
 ];
 
