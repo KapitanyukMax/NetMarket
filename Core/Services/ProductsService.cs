@@ -53,5 +53,13 @@ namespace Core.Services
 
             return _mapper.Map<ProductDto>(model);
         }
+
+        public ProductDto? GetByCategoryId(int categoryId)
+        {
+            var model = _repository.Get(filter: product => product.CategoryId == categoryId)
+                        ?? throw new HttpException("Product with Category Id not found!", HttpStatusCode.NotFound);
+
+            return _mapper.Map<ProductDto>(model);
+        }
     }
 }

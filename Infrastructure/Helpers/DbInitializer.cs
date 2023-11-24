@@ -9,14 +9,14 @@ namespace Infrastructure.Helpers
         {
             modelBuilder.Entity<Category>().HasData(new List<Category>
             {
-                new() { Id = 1, Name = "Cars & Transport" },
-                new() { Id = 2, Name = "Pets" },
-                new() { Id = 3, Name = "Home & Garden" },
-                new() { Id = 4, Name = "Electronics" },
-                new() { Id = 5, Name = "Fashion" },
-                new() { Id = 6, Name = "Hobbies & Sport" },
-                new() { Id = 7, Name = "Musical Instruments" },
-                new() { Id = 8, Name = "Art" }
+                new() { Id = 1, Name = "Cars & Transport", ImageUrl = "https://media.product.which.co.uk/prod/images/original/883d194116a8-carsnew-and-used-carspreview.jpg" },
+                new() { Id = 2, Name = "Pets", ImageUrl = "https://st3.idealista.com/cms/archivos/2019-02/media/image/pets%201%20pixabay.jpg?fv=ZKCvBRSk" },
+                new() { Id = 3, Name = "Home & Garden", ImageUrl = "https://www.thespruce.com/thmb/hFfTdifXm15gi7lJ9On8IeExlrg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/patio-furniture-plans-4769226-hero-2ba4479863d84c908bb86a06830f023d.jpg" },
+                new() { Id = 4, Name = "Electronics", ImageUrl = "https://en.idei.club/uploads/posts/2023-06/thumbs/1686248951_en-idei-club-p-electronic-devices-dizain-instagram-6.jpg" },
+                new() { Id = 5, Name = "Fashion", ImageUrl = "https://acousticwood.net/uploads/2023/07/what-does-fashion-over-style-mean.webp" },
+                new() { Id = 6, Name = "Hobbies & Sport", ImageUrl = "https://www.inclusiveemployers.co.uk/wp-content/uploads/2022/04/pexels-monstera-5384620-1920x1280.jpg" },
+                new() { Id = 7, Name = "Musical Instruments", ImageUrl = "https://assets.publishing.service.gov.uk/media/5ef5c197d3bf7f7691f44b6c/istock-894058154.jpg" },
+                new() { Id = 8, Name = "Art", ImageUrl = "https://cdn01.allaboutart.co.uk/media/klkjk1sk/artist-20accessories.png?anchor=center&mode=crop&width=1920&height=1280&rnd=132706501201730000&format=jpg&quality=55&bgcolor=white" }
             });
         }
 

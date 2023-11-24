@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Core.ApiModels.Products;
 using Core.Interfaces;
 
-namespace Shop_api_spu111.Controllers
+namespace NetMarket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -27,6 +27,12 @@ namespace Shop_api_spu111.Controllers
         public IActionResult GetByIdFromRoute([FromRoute] int modelId)
         {
             return Ok(_productsService.Get(modelId));
+        }
+
+        [HttpGet("category/{id}")]
+        public IActionResult GetByCategoryId([FromRoute] int categoryId)
+        {
+            return Ok();
         }
 
         [HttpPost]

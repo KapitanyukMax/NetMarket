@@ -2,7 +2,7 @@
 using Core.Exceptions;
 using System.Net;
 
-namespace Shop_api_spu111.Middlewares
+namespace NetMarket.Middlewares
 {
     public class ExceptionMiddleware
     {

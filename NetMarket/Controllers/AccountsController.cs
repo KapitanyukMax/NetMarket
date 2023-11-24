@@ -2,7 +2,7 @@
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Shop_api_spu111.Controllers
+namespace NetMarket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
