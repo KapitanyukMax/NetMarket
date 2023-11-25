@@ -1,5 +1,7 @@
 import {useState} from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+
+
 const AddProductForm=()=>{
     const [productName, setName] = useState('');
     const [productPrice, setPrice] = useState('');
@@ -35,12 +37,12 @@ const AddProductForm=()=>{
         console.log(product);
         
         
-        try {
-            const response = await axios.post('https://localhost:44447', product);
-            console.log('Success:', response.data);
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        // try {
+        //     const response = await axios.post('https://localhost:44447', product);
+        //     console.log('Success:', response.data);
+        // } catch (error) {
+        //     console.error('Error:', error);
+        // }
 
 
         setName('');
