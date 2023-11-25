@@ -5,8 +5,8 @@ using Core.Interfaces;
 
 namespace NetMarket.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductsService _productsService;
