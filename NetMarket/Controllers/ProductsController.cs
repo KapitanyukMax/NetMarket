@@ -6,7 +6,7 @@ using Core.Interfaces;
 namespace NetMarket.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductsService _productsService;
@@ -23,13 +23,13 @@ namespace NetMarket.Controllers
             return Ok(_productsService.Get());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{modelId}")]
         public IActionResult GetByIdFromRoute([FromRoute] int modelId)
         {
             return Ok(_productsService.Get(modelId));
         }
 
-        [HttpGet("category/{id}")]
+        [HttpGet("category/{categoryId}")]
         public IActionResult GetByCategoryId([FromRoute] int categoryId)
         {
             return Ok();
@@ -56,7 +56,7 @@ namespace NetMarket.Controllers
         }
 
         [Authorize]
-        [HttpDelete("{id}")]
+        [HttpDelete("{modelId}")]
         public IActionResult Delete([FromRoute] int modelId)
         {
             _productsService.Delete(modelId);
