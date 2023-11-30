@@ -22,7 +22,7 @@ namespace NetMarket.Controllers
             return Ok(_categoriesService.Get());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{modelId}")]
         public IActionResult GetByIdFromRoute([FromRoute] int modelId)
         {
             return Ok(_categoriesService.Get(modelId));
