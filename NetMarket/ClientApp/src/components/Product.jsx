@@ -24,7 +24,7 @@ const Product = ({product})=>
             <p>Rating : {rating}</p>
             <p>Description : {description}</p>
             <p>Status : {statusName}</p>
-            <p>Category : {categoryName.name}</p>
+            <p>Category : {categoryName}</p>
         </div>
     )
 }

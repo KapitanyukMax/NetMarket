@@ -1,7 +1,7 @@
 import { Home } from "./components/Home";
 import ProductListPage from "./components/ProductsListPage";
 import Cart from "./components/Cart";
-import Categories from "./components/Categories";
+import CategoryListPage from "./components/CategoryListPage";
 import AddProduct from "./components/AddProduct";
 import AddUser from "./components/AddUser";
 import LogIn from "./components/LogIn";
@@ -17,7 +17,7 @@ const AppRoutes = [
   },
   {
     path: '/api/categories/all',
-    element: <Categories />
+    element: <CategoryListPage />
   },
   {
       path: '/api/products/all',
