@@ -20,7 +20,7 @@ namespace Core.Services
 
         public List<CategoryDto> Get()
         {
-            var models = _repository.Get(includeProperties: "Category");
+            var models = _repository.Get();
             return _mapper.Map<List<CategoryDto>>(models);
         }
 
