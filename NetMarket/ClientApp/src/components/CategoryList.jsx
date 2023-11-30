@@ -1,21 +1,21 @@
-//import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 const CategoryList = () => {
     const categories = [];
 
-    //useEffect(() => {
-    //    const fetchCategories = async () => {
-    //        try {
-    //            const response = await axios.get('https://localhost:44447/category');
-    //            setCategories(response.data);
-    //        } catch (error) {
-    //            console.error('Error fetching categories:', error);
-    //        }
-    //    };
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get('https://localhost:44446/api/categories/all');
+                setCategories(response.data);
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        };
 
-    //    fetchCategories();
-    //}, []);
+        fetchCategories();
+    }, []);
 
     return (
         <div>

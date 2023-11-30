@@ -34,8 +34,8 @@ const NavMenu = () => {
           align="center"
           display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
         >
-          <NavLink to="/category">Category</NavLink>
-          <NavLink to="/">Main</NavLink>
+          <NavLink to="/categories/all">Category</NavLink>
+          <NavLink to="/products/all">Main</NavLink>
           <NavLink to="/cart">Cart</NavLink>
           <NavLink to="/addProduct">Add product</NavLink>
           <NavLink to="/addUser">Sign in</NavLink>
