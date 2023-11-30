@@ -1,6 +1,13 @@
 import {useState} from 'react';
 //import axios from 'axios';
-
+import {
+    Box,
+    Button,
+    Input,
+    VStack,
+    FormControl,
+    FormLabel,
+  } from '@chakra-ui/react';
 
 const AddProductForm=()=>{
     const [productName, setName] = useState('');
@@ -51,70 +58,88 @@ const AddProductForm=()=>{
         setImgUrl('');
         setCategory('');
     };
-    return(
-        <div>
-            <h2>Enter data of your product : </h2>
-            <form>
-                <div className="add-product-form">
-                <div>
-                    <label htmlFor="productName">Name of product : </label>
-                        <input
-                            type="text"
-                            id="productName"
-                            name="productName"
-                            value={productName}
-                            onChange={handleNameChange}
-                            required
-                        />
-                </div>
-                <div>
-                    <label htmlFor="productPrice"> Price of product : </label>
-                    <input
-                        type="text"
-                        id="productPrice"
-                        name="productPrice"
-                        value={productPrice}
-                        onChange={handlePriceChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="productDescription">Product description : </label>
-                    <input
-                        type="text"
-                        id="productDescription"
-                        name="productDesription"
-                        value={productDescription}
-                        onChange={handleDescriptionChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="productImgUrl">Url of image for product : </label>
-                    <input
-                        type="text"
-                        id="productImgUrl"
-                        name="productImgUrl"
-                        value={productImgUrl}
-                        onChange={handleImgUrlChange}
-                        required
-                    />
-                </div>
-                <div>
-                    <label htmlFor="productCategory">Category :</label>
-                    <input
-                        type="text"
-                        id="productCategory"
-                        name="productCategory"
-                        value={productCategory}
-                        onChange={handleCategoryChange}
-                        required/>   
-                </div>
-                <button type="button" onClick={handleSubmit}>Confirm </button>    
-                </div>         
-            </form>
-        </div>
-    )
+    return (
+        <VStack spacing={4} align="start">
+          <Box>
+            <FormControl>
+              <FormLabel htmlFor="productName">Name of product :</FormLabel>
+              <Input
+                type="text"
+                id="productName"
+                name="productName"
+                value={productName}
+                onChange={handleNameChange}
+                width="350px"
+                required
+              />
+            </FormControl>
+          </Box>
+    
+          <Box>
+            <FormControl>
+              <FormLabel htmlFor="productPrice">Price of product :</FormLabel>
+              <Input
+                type="text"
+                id="productPrice"
+                name="productPrice"
+                value={productPrice}
+                onChange={handlePriceChange}
+                width="350px"
+                required
+              />
+            </FormControl>
+          </Box>
+    
+          <Box>
+            <FormControl>
+              <FormLabel htmlFor="productDescription">Product description :</FormLabel>
+              <Input
+                type="text"
+                id="productDescription"
+                name="productDescription"
+                value={productDescription}
+                onChange={handleDescriptionChange}
+                width="350px"
+                required
+              />
+            </FormControl>
+          </Box>
+    
+          <Box>
+            <FormControl>
+              <FormLabel htmlFor="productImgUrl">Url of image for product :</FormLabel>
+              <Input
+                type="text"
+                id="productImgUrl"
+                name="productImgUrl"
+                value={productImgUrl}
+                onChange={handleImgUrlChange}
+                width="350px"
+                required
+              />
+            </FormControl>
+          </Box>
+    
+          <Box>
+            <FormControl>
+              <FormLabel htmlFor="productCategory">Category :</FormLabel>
+              <Input
+                type="text"
+                id="productCategory"
+                name="productCategory"
+                value={productCategory}
+                onChange={handleCategoryChange}
+                width="350px"
+                required
+              />
+            </FormControl>
+          </Box>
+    
+          <Button colorScheme="teal" onClick={handleSubmit}>
+            Confirm
+          </Button>
+        </VStack>
+      );
 }
 
 

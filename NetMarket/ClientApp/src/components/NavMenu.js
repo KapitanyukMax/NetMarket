@@ -1,56 +1,66 @@
-import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import React, { useState } from 'react';
+import { Box, Flex, Link, Spacer, Text} from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Link as RouterLink } from 'react-router-dom';
 
-export class NavMenu extends Component {
-  static displayName = NavMenu.name;
+const NavMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  constructor (props) {
-    super(props);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
-    };
-  }
+  return (
+    <Box>
+      <Flex
+        as="header"
+        align="center"
+        justify="space-between"
+        padding={4}
+        borderBottom="1px"
+        borderColor="gray.200"
+      >
+        <Text fontSize="xl" fontWeight="bold">
+          <Link as={RouterLink} to="/" color="teal.500">
+            NetMarket
+          </Link>
+        </Text>
+        <Spacer />
+        <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
+          {isOpen ? <CloseIcon boxSize={6} /> : <HamburgerIcon boxSize={6} />}
+        </Box>
+        <Flex
+          as="nav"
+          align="center"
+          display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+        >
+          <NavLink to="/category">Category</NavLink>
+          <NavLink to="/">Main</NavLink>
+          <NavLink to="/cart">Cart</NavLink>
+          <NavLink to="/addProduct">Add product</NavLink>
+          <NavLink to="/addUser">Sign in</NavLink>
+          <NavLink to="/logIn">Log in</NavLink>
+        </Flex>
+      </Flex>
+    </Box>
+  );
+};
 
-  toggleNavbar () {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
+const NavLink = ({ to, children }) => (
+  <Link
+    as={RouterLink}
+    to={to}
+    p={2}
+    mx={2}
+    rounded="md"
+    _hover={{
+      textDecoration: 'none',
+      bg: 'teal.500',
+      color: 'white',
+    }}
+  >
+    {children}
+  </Link>
+);
 
-  render() {
-    return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
-          <NavbarBrand tag={Link} to="/">NetMarket</NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-            <ul className="navbar-nav flex-grow">
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/category">Category</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Main</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/cart">Cart</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/addProduct">Add product</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/addUser">Sign in</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/logIn">Log in</NavLink>
-              </NavItem>
-            </ul>
-          </Collapse>
-        </Navbar>
-      </header>
-    );
-  }
-}
+export default NavMenu;

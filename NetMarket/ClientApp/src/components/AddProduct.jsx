@@ -1,5 +1,5 @@
 import AddProductForm from './AddProductForm';
-import './AddProduct.css';
+//import './AddProduct.css';
 
 const AddProduct = ()=>
 {
