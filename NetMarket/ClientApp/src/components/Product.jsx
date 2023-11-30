@@ -1,26 +1,30 @@
 import React from 'react';
 const Product = ({product})=>
 {
-    const{
-        Name,
-        Price,
-        Discount,
-        Rating,
-        Description,
-        ImageUrl,
-        Status,
-        Category,
+    if (!product){
+        return <p>Product not found</p>
+    }
+    const {
+        id,
+        name,
+        price,
+        discount,
+        rating,
+        description,
+        imageUrl,
+        statusName,
+        categoryName,
     } = product;
     return(
         <div>
-            <h2>{Name}</h2>
-            <img src={ImageUrl} alt={Name}/>
-            <p>Price : ${Price}</p>
-            <p>Discount : ${Discount}</p>
-            <p>Rating : ${Rating}</p>
-            <p>Description : ${Description}</p>
-            <p>Status : ${Status}</p>
-            <p>Category : ${Category.Name}</p>
+            <h2>{name}</h2>
+            <img src={imageUrl} alt={name}/>
+            <p>Price : ${price}</p>
+            <p>Discount : ${discount}</p>
+            <p>Rating : {rating}</p>
+            <p>Description : {description}</p>
+            <p>Status : {statusName}</p>
+            <p>Category : {categoryName.name}</p>
         </div>
     )
 }

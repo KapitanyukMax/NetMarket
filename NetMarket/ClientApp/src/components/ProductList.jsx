@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import Product from './Product';
 
-
-const ProductList=()=>
+const ProductList = ({ products})=>
 {
     
     return(
         <div>
             <h2>Product List</h2>
-           
+            {products.map((product) => (
+                <Product key={product.id} product={product} />
+            ))}
         </div>
     );
 };

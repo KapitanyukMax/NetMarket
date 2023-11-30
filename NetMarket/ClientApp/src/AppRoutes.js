@@ -16,11 +16,11 @@ const AppRoutes = [
     element: <Cart />
   },
   {
-    path: '/categories/all',
+    path: '/api/categories/all',
     element: <Categories />
   },
   {
-      path: '/products/all',
+      path: '/api/products/all',
     element: <ProductListPage/>
   },
   {
