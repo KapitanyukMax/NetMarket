@@ -16,7 +16,6 @@ namespace NetMarket.Controllers
             _productsService = productsService;
         }
 
-        [Authorize]
         [HttpGet("all")]
         public IActionResult Get()
         {
@@ -35,6 +34,7 @@ namespace NetMarket.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] CreateProductModel model)
         {
@@ -45,6 +45,7 @@ namespace NetMarket.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult Edit([FromBody] EditProductModel model)
         {

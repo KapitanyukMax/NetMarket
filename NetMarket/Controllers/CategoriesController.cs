@@ -15,7 +15,6 @@ namespace NetMarket.Controllers
             _categoriesService = categoriesService;
         }
 
-        [Authorize]
         [HttpGet("all")]
         public IActionResult Get()
         {
