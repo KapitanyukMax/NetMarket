@@ -1,7 +1,11 @@
 ﻿import React from 'react';
-const Product = ({product})=>
-{
-    if (!product){
+import { Button } from '@chakra-ui/react';
+const Product = ({ product, onAddToCart }) => {
+
+    const handleAddToCart = () => {
+        onAddToCart(product);
+    };
+    if (!product) {
         return <p>Product not found</p>
     }
     const {
@@ -15,18 +19,19 @@ const Product = ({product})=>
         statusName,
         categoryName,
     } = product;
-    return(
+    return (
         <div>
             <h2>{name}</h2>
-            <img src={imageUrl} alt={name}/>
+            <img src={imageUrl} alt={name} />
             <p>Price : ${price}</p>
             <p>Discount : ${discount}</p>
             <p>Rating : {rating}</p>
             <p>Description : {description}</p>
             <p>Status : {statusName}</p>
             <p>Category : {categoryName}</p>
+            <Button onClick={handleAddToCart}>Add to Cart</Button>
         </div>
-    )
-}
+    );
+};
 
 export default Product;

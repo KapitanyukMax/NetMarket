@@ -20,10 +20,14 @@ const ProductListPage = () => {
         
         fetchData();
     }, []);
+
+    const handleAddToCart = (product) => {
+        console.log("Product added", product);
+    }
     return(
         <div>
             <h1>Product List Page</h1>
-            {productData ? <ProductList products={productData} /> : <p>Loading...</p>}
+            {productData ? <ProductList products={productData} onAddToCart={handleAddToCart} /> : <p>Loading...</p>}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import { Box, Button, Input, VStack, FormControl, FormLabel, Select, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { Box, Button, Input, VStack, FormLabel, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { EmailIcon, PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
 
   
