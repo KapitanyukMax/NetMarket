@@ -31,7 +31,7 @@ namespace NetMarket.Controllers
         [HttpGet("category/{categoryId}")]
         public IActionResult GetByCategoryId([FromRoute] int categoryId)
         {
-            return Ok();
+            return Ok(_productsService.GetByCategoryId(categoryId));
         }
 
         [Authorize]

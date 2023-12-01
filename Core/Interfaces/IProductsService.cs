@@ -7,7 +7,7 @@ namespace Core.Interfaces
     {
         List<ProductDto> Get();
         ProductDto? Get(int modelId);
-        ProductDto? GetByCategoryId(int categoryId);
+        List<ProductDto>? GetByCategoryId(int categoryId);
         void Create(CreateProductModel model);
         void Edit(EditProductModel model);
         void Delete(int modelId);
