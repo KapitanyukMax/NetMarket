@@ -1,29 +1,24 @@
 import {useState} from 'react';
-//import './AddNewUserForm.css';
-//import axios from 'axios';
-import {
-    Box,
-    Button,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    VStack,
-    //FormControl,
-    FormLabel,
-  } from '@chakra-ui/react';
-  import { EmailIcon, PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
+import axios from 'axios';
+import { Box, Button, Input, VStack, FormControl, FormLabel, Select, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { EmailIcon, PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
+
   
 
 const AddNewUserForm=()=>{
-    const [UserName, setUserName] = useState('');
-    const [DateOfBirth, setDateOfBirth] = useState('');
-    const [Email, setEmail] = useState('');
-    const [PhoneNumber, setPhoneNumber] = useState('');
+    const [userName, setUserName] = useState('');
+    //const [password, setPassword] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
 
 
     const handleUserNameChange=(e)=>{
         setUserName(e.target.value);
     }
+    //const handlePasswordChange = (e) => {
+    //    setPassword(e.target.value);
+    //}
     const handleDateOfBirth=(e)=>{
         setDateOfBirth(e.target.value);
     }
@@ -34,23 +29,31 @@ const AddNewUserForm=()=>{
         setPhoneNumber(e.target.value);
     }
 
-    const handleSubmit = async ()=>{
+    const handleSubmit = async () => {
+        if (!userName || !dateOfBirth || !email || !phoneNumber /*|| !password*/) {
+            console.error("Please fill all fields");
+            return;
+        }
         const user={
-            UserName: UserName,
-            DateOfBirth: DateOfBirth,
-            Email : Email,
-            PhoneNumber : PhoneNumber
+            userName,
+            //password,
+            dateOfBirth,
+            email,
+            phoneNumber
         }
 
     console.log(user);
-    // try {
-    //     const response = await axios.post('https://localhost:44447', user);
-    //     console.log('Success:', response.data);
-    // } catch (error) {
-    //     console.error('Error:', error);
-    // }
+        try {
+            const response = await axios.post('https://localhost:44446/api/register', user);
+            console.log('Success:', response.data);
+            
+        } catch (error) {
+            console.error('Error:', error);
+           
+        }
 
-    setUserName('');
+        setUserName('');
+        //setPassword('');
     setDateOfBirth('');
     setEmail('');
     setPhoneNumber('');
@@ -63,13 +66,26 @@ const AddNewUserForm=()=>{
               type="text"
               id="userName"
               name="userName"
-              value={UserName}
+              value={userName}
               onChange={handleUserNameChange}
               width="350px"
               required
             />
           </Box>
-    
+            {/*<Box>*/}
+            {/*    <FormControl>*/}
+            {/*        <FormLabel htmlFor="password">Password:</FormLabel>*/}
+            {/*        <Input*/}
+            {/*            type="password"*/}
+            {/*            id="password"*/}
+            {/*            name="password"*/}
+            {/*            value={password}*/}
+            {/*            onChange={handlePasswordChange}*/}
+            {/*            width="350px"*/}
+            {/*            required*/}
+            {/*        />*/}
+            {/*    </FormControl>*/}
+            {/*</Box>*/}
           <Box>
             <FormLabel htmlFor="dateOfBirth"> Date of birth :</FormLabel>
             <InputGroup>
@@ -80,7 +96,7 @@ const AddNewUserForm=()=>{
                 type="date"
                 id="dateOfBirth"
                 name="dateOfBirth"
-                value={DateOfBirth}
+                value={dateOfBirth}
                 onChange={handleDateOfBirth}
                 width="350px"
                 required
@@ -98,7 +114,7 @@ const AddNewUserForm=()=>{
                 type="email"
                 id="userEmail"
                 name="userEmail"
-                value={Email}
+                value={email}
                 onChange={handleEmailChange}
                 width="350px"
                 required
@@ -116,7 +132,7 @@ const AddNewUserForm=()=>{
                 type="tel"
                 id="userPhoneNumber"
                 name="userPhoneNumber"
-                value={PhoneNumber}
+                value={phoneNumber}
                 onChange={handlePhoneNumber}
                 width="350px"
                 required

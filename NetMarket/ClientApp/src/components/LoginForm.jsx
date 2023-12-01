@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input, VStack } from '@chakra-ui/react';
+import axios from 'axios';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -13,9 +14,21 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Додайте код для обробки введених даних (email та пароль)
+  const handleSubmit = async (e) => {
+    //e.preventDefault();
+      try {
+          const response = await axios.post('https://localhost:44446/api/auth/login', {
+              email: email,
+              password: password,
+          });
+
+          const token = response.data.Token;
+
+          // Зберегти токен у локальному сховищі або куках
+          // Використовуйте його для авторизації в подальших запитах
+      } catch (error) {
+          console.error('Login failed:', error);
+      }
   };
 
   return (

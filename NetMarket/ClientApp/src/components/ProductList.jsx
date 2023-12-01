@@ -1,15 +1,18 @@
 import React from 'react';
+import { Flex, Box } from '@chakra-ui/react';
 import Product from './Product';
 
-const ProductList = ({ products})=>
-{
-    
-    return(
+const ProductList = ({ products }) => {
+    return (
         <div>
             <h2>Product List</h2>
-            {products.map((product) => (
-                <Product key={product.id} product={product} />
-            ))}
+            <Flex flexWrap="wrap">
+                {products.map((product) => (
+                    <Box key={product.id} flex="0 0 33.33%" padding="8px">
+                        <Product product={product} />
+                    </Box>
+                ))}
+            </Flex>
         </div>
     );
 };

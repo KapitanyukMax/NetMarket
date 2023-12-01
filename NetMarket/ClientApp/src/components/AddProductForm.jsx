@@ -1,13 +1,7 @@
-import {useState} from 'react';
-//import axios from 'axios';
-import {
-    Box,
-    Button,
-    Input,
-    VStack,
-    FormControl,
-    FormLabel,
-  } from '@chakra-ui/react';
+﻿import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Box, Button, Input, VStack, FormControl, FormLabel, Select } from '@chakra-ui/react';
+
 
 const AddProductForm=()=>{
     const [productName, setName] = useState('');
@@ -15,6 +9,22 @@ const AddProductForm=()=>{
     const [productDescription, setDescription] = useState('');
     const [productImgUrl, setImgUrl] = useState('');
     const [productCategory, setCategory] = useState('');
+    const [categories, setCategories] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch('https://localhost:44446/api/categories/all');
+                const data = await response.json();
+                setCategories(data);
+            } catch (error) {
+                console.error('Error loading categories: ', error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     const handleNameChange=(e)=>{
         setName(e.target.value);
@@ -31,8 +41,14 @@ const AddProductForm=()=>{
     const handleCategoryChange=(e)=>{
         setCategory(e.target.value);
     }
-    const handleSubmit= async ()=>{
-        const product={
+    const handleSubmit = async () => {
+        // Перевірка, чи всі поля заповнені
+        if (!productName || !productPrice || !productDescription || !productImgUrl || !productCategory) {
+            console.error('Please fill in all fields');
+            return;
+        }
+
+        const product = {
             Name: productName,
             Price: productPrice,
             Description: productDescription,
@@ -44,12 +60,23 @@ const AddProductForm=()=>{
         console.log(product);
         
         
-        // try {
-        //     const response = await axios.post('https://localhost:44447', product);
-        //     console.log('Success:', response.data);
-        // } catch (error) {
-        //     console.error('Error:', error);
-        // }
+        try {
+            
+            const response = await axios.post('https://localhost:44446/api/products', product);
+            console.log('Success:', response.data);
+        } catch (error) {
+            
+            if (error.response) {
+               
+                setError(`Error: ${error.response.status} - ${error.response.data}`);
+            } else if (error.request) {
+                
+                setError('Network error, please try again later.');
+            } else {
+                
+                setError('An unexpected error occurred.');
+            }
+        }
 
 
         setName('');
@@ -120,20 +147,26 @@ const AddProductForm=()=>{
             </FormControl>
           </Box>
     
-          <Box>
-            <FormControl>
-              <FormLabel htmlFor="productCategory">Category :</FormLabel>
-              <Input
-                type="text"
-                id="productCategory"
-                name="productCategory"
-                value={productCategory}
-                onChange={handleCategoryChange}
-                width="350px"
-                required
-              />
-            </FormControl>
-          </Box>
+            <Box>
+                <FormControl>
+                    <FormLabel htmlFor="productCategory">Category :</FormLabel>
+                    <Select
+                        id="productCategory"
+                        name="productCategory"
+                        value={productCategory}
+                        onChange={handleCategoryChange}
+                        width="350px"
+                        required
+                    >
+                        <option value="">Select a category</option>
+                        {categories.map(category => (
+                            <option key={category.id} value={category.name}>
+                                {category.name}
+                            </option>
+                        ))}
+                    </Select>
+                </FormControl>
+            </Box>
     
           <Button colorScheme="teal" onClick={handleSubmit}>
             Confirm
