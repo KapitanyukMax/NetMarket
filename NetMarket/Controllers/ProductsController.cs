@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Core.ApiModels.Products;
 using Core.Interfaces;
 
@@ -34,7 +33,6 @@ namespace NetMarket.Controllers
             return Ok(_productsService.GetByCategoryId(categoryId));
         }
 
-        [Authorize]
         [HttpPost]
         public IActionResult Create([FromBody] CreateProductModel model)
         {
@@ -45,7 +43,6 @@ namespace NetMarket.Controllers
             return Ok();
         }
 
-        [Authorize]
         [HttpPut]
         public IActionResult Edit([FromBody] EditProductModel model)
         {
@@ -56,7 +53,6 @@ namespace NetMarket.Controllers
             return Ok();
         }
 
-        [Authorize]
         [HttpDelete("{modelId}")]
         public IActionResult Delete([FromRoute] int modelId)
         {
