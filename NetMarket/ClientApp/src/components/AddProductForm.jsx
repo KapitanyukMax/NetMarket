@@ -8,7 +8,7 @@ const AddProductForm=()=>{
     const [productPrice, setPrice] = useState('');
     const [productDescription, setDescription] = useState('');
     const [productImgUrl, setImgUrl] = useState('');
-    const [productCategory, setCategory] = useState('');
+    const [productCategoryId, setCategoryId] = useState('');
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
 
@@ -38,12 +38,12 @@ const AddProductForm=()=>{
     const handleImgUrlChange=(e)=>{
         setImgUrl(e.target.value);
     }
-    const handleCategoryChange=(e)=>{
-        setCategory(e.target.value);
+    const handleCategoryIdChange=(e)=>{
+        setCategoryId(e.target.value);
     }
     const handleSubmit = async () => {
         // Перевірка, чи всі поля заповнені
-        if (!productName || !productPrice || !productDescription || !productImgUrl || !productCategory) {
+        if (!productName || !productPrice || !productDescription || !productImgUrl || !productCategoryId) {
             console.error('Please fill in all fields');
             return;
         }
@@ -53,7 +53,7 @@ const AddProductForm=()=>{
             Price: productPrice,
             Description: productDescription,
             ImgUrl: productImgUrl,
-            Category: productCategory
+            CategoryId: productCategoryId
         };
 
 
@@ -83,7 +83,7 @@ const AddProductForm=()=>{
         setPrice('');
         setDescription('');
         setImgUrl('');
-        setCategory('');
+        setCategoryId('');
     };
     return (
         <VStack spacing={4} align="start">
@@ -149,18 +149,18 @@ const AddProductForm=()=>{
     
             <Box>
                 <FormControl>
-                    <FormLabel htmlFor="productCategory">Category :</FormLabel>
+                    <FormLabel htmlFor="productCategoryId">Category :</FormLabel>
                     <Select
-                        id="productCategory"
-                        name="productCategory"
-                        value={productCategory}
-                        onChange={handleCategoryChange}
+                        id="productCategoryId"
+                        name="productCategoryId"
+                        value={productCategoryId}
+                        onChange={handleCategoryIdChange}
                         width="350px"
                         required
                     >
                         <option value="">Select a category</option>
                         {categories.map(category => (
-                            <option key={category.id} value={category.name}>
+                            <option key={category.id} value={category.id}>
                                 {category.name}
                             </option>
                         ))}
