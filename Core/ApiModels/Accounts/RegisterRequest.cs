@@ -8,6 +8,6 @@
 
         public string? PhoneNumber { get; set; }
 
-        public DateTime Birthdate { get; set; }
+        public string Birthdate { get; set; } = string.Empty;
     }
 }
