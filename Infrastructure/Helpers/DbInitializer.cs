@@ -55,7 +55,7 @@ namespace Infrastructure.Helpers
                     Discount = 0.0m,
                     Rating = 6,
                     Description = "Great synthesizer professional line YAMAHA PSR E-343!\nPerfect condition!\nBoth adults and children can easily master the user-friendly control interface. This is a tool in which the design is organically combined with the necessary functionality",
-                    ImageUrl = "https://ireland.apollo.olxcdn.com/v1/files/utm4vzs67i893-UA/image",
+                    ImageUrl = "https://usa.yamaha.com/files/PSR-E343_1000x400_1200x480_84f4d40f0bbb9ec4f490d6dc7b2eb6d4.jpg",
                     Status = Product.Statuses.InStock,
                     CategoryId = 7
                 },
