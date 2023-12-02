@@ -28,7 +28,7 @@ const AppRoutes = [
     element: <AddProduct/>
   },
   {
-    path: '/addUser',
+    path: '/api/accounts/register',
     element: <AddUser/>
   },
   {

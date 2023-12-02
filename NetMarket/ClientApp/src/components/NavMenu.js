@@ -38,7 +38,7 @@ const NavMenu = () => {
           <NavLink to="/api/products/all">Main</NavLink>
           <NavLink to="/cart">Cart</NavLink>
           <NavLink to="/addProduct">Add product</NavLink>
-          <NavLink to="/addUser">Sign in</NavLink>
+          <NavLink to="/api/accounts/register">Sign in</NavLink>
           <NavLink to="/logIn">Log in</NavLink>
         </Flex>
       </Flex>

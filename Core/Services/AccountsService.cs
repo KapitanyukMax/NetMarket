@@ -48,7 +48,7 @@ namespace BusinessLogic.Services
                 UserName = model.Email,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
-                Birthdate = model.Birthdate
+                Birthdate = DateTime.Parse(model.Birthdate)
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
