@@ -12,7 +12,7 @@ const Cart = () => {
         }
     }, []);
 
-    const addToCart = (item) => {
+    const onAddToCart = (item) => {
         
         const newCartItems = [...cartItems, item];
         setCartItems(newCartItems);
