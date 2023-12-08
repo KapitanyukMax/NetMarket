@@ -2,7 +2,8 @@ import React from 'react';
 import { Flex, Box } from '@chakra-ui/react';
 import Product from './Product';
 
-const ProductList = ({ products, onAddToCart }) => {
+const 
+= ({ products, onAddToCart }) => {
     const handleAddToCart = (product) => {
         onAddToCart(product);
     }
